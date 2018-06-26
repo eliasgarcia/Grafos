@@ -24,14 +24,16 @@ public class Dijkstra {
 		distancias[nodo] = 0;
 		visitados[nodo] = true;
 		while (!todosNodosFueronVisitados()) {
-			for (int i = 0; i < nodos.length; i++) {// actualizo distancias de los que no fueorn visitados
+			for (int i = 0; i < nodos.length; i++) {// 
 				if (!visitados[i] && nodos[nodo][i] != -1 && distancias[i] > distancias[nodo] + nodos[nodo][i]) {
+/*basicamente actualizo distancia de adyancentes que no fueron visitados, quizas ya tenian valores por recorridos
+  anteriores, pero lo que busco es actulizarlo si es que con este nodo hay mejor costo
+*/
 					distancias[i] = distancias[nodo] + nodos[nodo][i];
 					camino[i] = nodo;
-					// minimo entre lo que tenia y su costo mas el costo del padre actual
 				}
 			}
-			// aca abajo buscare la distancia mas chica que no fue visitada
+// aca abajo buscare la distancia mas chica que no fue visitada (ya sean adyancentes actuales o de recorridos anteriores)
 			int nodoMin = INFINITO;
 			for (int i = 0; i < visitados.length; i++) {
 				if (!visitados[i] && (nodoMin == INFINITO || distancias[i] < distancias[nodoMin])) {
