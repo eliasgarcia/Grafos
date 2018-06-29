@@ -108,14 +108,5 @@ public class Dijkstra {
 
 		// DIJKSTRA I = 0,10,22,15,20
 
-		// Queue<Integer> colaPrioridad = new PriorityQueue<>();
-		// colaPrioridad.add(50);
-		// colaPrioridad.add(60);
-		// colaPrioridad.add(30);
-		// colaPrioridad.add(15);
-		// colaPrioridad.add(100);
-		// while(!colaPrioridad.isEmpty()) {
-		// System.out.println(colaPrioridad.poll());
-		// }
 	}
 }
