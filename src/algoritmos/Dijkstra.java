@@ -8,12 +8,10 @@ public class Dijkstra {
 	int[][] nodos;
 	int[] distancias;
 	boolean[] visitados;
-	Stack<Integer> pila;
 	int[] camino;
 
 	public Dijkstra(int[][] nodos) {
 		this.nodos = nodos.clone();
-		pila = new Stack<>();
 		inicializarDistancias();
 		inicializarVisitados();
 		inicializarCamino();
@@ -43,10 +41,6 @@ public class Dijkstra {
 			if (nodoMin != INFINITO) {
 				visitados[nodoMin] = true;
 				nodo = nodoMin;
-			} else {
-				if (!pila.isEmpty())
-					nodo = pila.pop();
-				break;
 			}
 		}
 	}
@@ -77,6 +71,7 @@ public class Dijkstra {
 		visitados = new boolean[nodos.length];
 		for (int i = 0; i < distancias.length; i++) {
 			visitados[i] = false;
+
 		}
 	}
 
@@ -93,11 +88,11 @@ public class Dijkstra {
 
 	public static void main(String[] args) {
 		// este grafo no necesita volver para atras(no se aprovecha la pila)
-		int[][] matriz = { { -1, 10, -1, 20, 40 }, { -1, -1, 10, 5, -1 }, { -1, -1, -1, -1, -1 }, { -1, -1, 10, -1, 5 },
-				{ -1, -1, 2, -1, -1 } };
-		Dijkstra distra = new Dijkstra(matriz);
-		distra.econtrarDistancias(0);
-		distra.mostrar();
+//		int[][] matriz = { { -1, 10, -1, 20, 40 }, { -1, -1, 10, 5, -1 }, { -1, -1, -1, -1, -1 }, { -1, -1, 10, -1, 5 },
+//				{ -1, -1, 2, -1, -1 } };
+//		Dijkstra distra = new Dijkstra(matriz);
+//		distra.econtrarDistancias(0);
+//		distra.mostrar();
 
 		// en este grafo se necesita volver para atras(se aprovecha la pila)
 		int[][] matrizDos = { { -1, 10, -1, 20, 40, -1 }, { -1, -1, 10, 5, -1, 200 }, { -1, -1, -1, -1, -1, -1 },
